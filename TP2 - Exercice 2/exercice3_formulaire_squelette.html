@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 3 - Formulaire de Validation Native</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 40px;
+            color: #1a1a1a;
+        }
+        form {
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #fdfdfd;
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input, select {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+        /* Utilisation des pseudo-classes CSS demandées dans le cours */
+        input:user-invalid {
+            border-color: #d32f2f;
+            background-color: #ffebee;
+        }
+        input:user-valid {
+            border-color: #388e3c;
+            background-color: #e8f5e9;
+        }
+        button {
+            padding: 10px;
+            background: #1565C0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Inscription</h1>
+
+    <!-- Formulaire validé à 100% nativement par le navigateur sans JavaScript -->
+    <form>
+        <!-- Nom d'utilisateur -->
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required minlength="3" maxlength="20" placeholder="Entre 3 et 20 caractères">
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required placeholder="nom@exemple.com">
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.">
+        </div>
+
+        <!-- Date de naissance -->
+        <div class="form-group">
+            <label for="birthdate">Date de naissance :</label>
+            <input type="date" id="birthdate" name="birthdate" required max="2010-01-01">
+        </div>
+
+        <!-- Pays -->
+        <div class="form-group">
+            <label for="country">Pays :</label>
+            <select id="country" name="country" required>
+                <option value="">-- Sélectionnez votre pays --</option>
+                <option value="TN">Tunisie</option>
+                <option value="FR">France</option>
+                <option value="CA">Canada</option>
+                <option value="US">États-Unis</option>
+            </select>
+        </div>
+
+        <!-- Bouton d'envoi -->
+        <button type="submit">S'inscrire</button>
+    </form>
+
+</body>
+</html>

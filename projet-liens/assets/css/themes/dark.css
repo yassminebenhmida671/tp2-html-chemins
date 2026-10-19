@@ -1,0 +1,24 @@
+/* dark.css - fichier situé dans assets/css/themes/ */
+
+body.dark-mode {
+  background: #121212;
+  color: #eeeeee;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background: #0d47a1;
+}
+
+/* Icône affichée en mode sombre */
+body.dark-mode .badge-mode::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../../images/icons/home.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin-right: 6px;
+}
